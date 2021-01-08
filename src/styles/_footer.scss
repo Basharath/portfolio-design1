@@ -1,0 +1,29 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: $dark;
+
+  .social-icons {
+    display: flex;
+    padding-top: 50px;
+    margin-bottom: 20px;
+    i {
+      padding: 15px;
+      font-size: 2rem;
+      color: $white;
+      transform: translateY(0);
+      transition: all 0.3s;
+
+      &:hover {
+        color: #eee;
+        transform: translateY(-10px);
+      }
+    }
+  }
+
+  .copyright {
+    color: $white;
+    padding-bottom: 40px;
+  }
+}

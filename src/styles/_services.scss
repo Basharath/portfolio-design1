@@ -1,0 +1,86 @@
+.services {
+  background-color: $white;
+  padding: 80px 10px;
+  @include center;
+  flex-direction: column;
+  .heading {
+    font-size: 3rem;
+    font-weight: 500;
+    text-transform: capitalize;
+    text-shadow: $textShadow;
+    margin-bottom: 30px;
+    position: relative;
+
+    &::after {
+      @include borderBottom;
+      height: 2px;
+    }
+  }
+  .container {
+    max-width: $maxWidth;
+    @include center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    .card {
+      @include center;
+      flex-direction: column;
+      width: 360px;
+      background-color: #fff;
+      padding: 20px;
+      margin: 15px;
+      border-radius: 10px;
+
+      .icon {
+        font-size: 2rem;
+        margin: 10px;
+        color: $primary;
+      }
+
+      &:hover .title::after {
+        width: 70%;
+      }
+
+      &:hover {
+        box-shadow: 1px 1px 15px 1px rgba(0, 0, 0, 0.1);
+      }
+      .title {
+        font-size: 1.2rem;
+        font-weight: 500;
+        padding-bottom: 10px;
+        position: relative;
+
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          width: 50%;
+          height: 2px;
+          background-color: $lightgreen;
+          transform: translateX(-50%);
+          transition: all 0.3s;
+        }
+      }
+      .description {
+        color: $dark;
+        font-size: 15px;
+        padding: 25px 0;
+      }
+    }
+  }
+}
+
+@media (max-width: $lg) {
+  .services .container {
+    justify-content: center;
+  }
+}
+
+@media (max-width: $xs) {
+  .services .container {
+    .card {
+      width: 300px;
+    }
+  }
+}

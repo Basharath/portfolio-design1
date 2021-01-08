@@ -1,0 +1,109 @@
+.latest_articles {
+  background-color: $lightBackground;
+  padding: 80px 25px;
+  @include center;
+  flex-direction: column;
+  .heading {
+    font-size: 3rem;
+    font-weight: 500;
+    text-transform: capitalize;
+    text-shadow: $textShadow;
+    margin-bottom: 40px;
+    position: relative;
+
+    &::after {
+      @include borderBottom;
+      height: 2px;
+    }
+  }
+
+  .container {
+    max-width: $maxWidth;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .card {
+      width: 350px;
+      margin: 15px;
+      background-color: $white;
+      border-radius: 10px;
+
+      &:hover {
+        box-shadow: $boxShadow;
+      }
+
+      .card_body {
+        padding: 15px;
+      }
+      img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        border-radius: 10px 10px 0 0;
+        cursor: pointer;
+        transform: scale(1);
+        transition: all 0.3s;
+
+        &:hover {
+          transform: scale(1.01);
+        }
+      }
+      .title {
+        font-size: 1.3rem;
+        font-weight: 500;
+        color: #111;
+        cursor: pointer;
+        margin-bottom: 10px;
+      }
+      .excerpt {
+        font-size: 15px;
+        color: $dark;
+        margin-bottom: 10px;
+      }
+      .card_footer {
+        display: flex;
+        justify-content: space-between;
+        font-size: 13px;
+        margin-top: 15px;
+        .tag {
+          background-color: #666;
+          padding: 5px;
+          color: $white;
+          border-radius: 5px;
+          cursor: pointer;
+        }
+
+        .date {
+          padding: 5px;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $lg) {
+  .latest_articles .container {
+    .card {
+      width: 100%;
+      margin: 15px 0;
+    }
+  }
+}
+
+@media (max-width: $sm) {
+  .latest_articles {
+    .heading {
+      font-size: 2.8rem;
+    }
+  }
+}
+
+@media (max-width: $xs) {
+  .latest_articles {
+    .heading {
+      font-size: 2.4rem;
+    }
+  }
+}

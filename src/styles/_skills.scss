@@ -1,0 +1,76 @@
+.skills {
+  background-color: $white;
+  padding: 80px 25px;
+  @include center;
+  flex-direction: column;
+  .heading {
+    font-size: 3rem;
+    font-weight: 500;
+    text-transform: capitalize;
+    text-shadow: $textShadow;
+    margin-bottom: 25px;
+    position: relative;
+
+    &::after {
+      @include borderBottom;
+      height: 2px;
+    }
+  }
+
+  .container {
+    max-width: $maxWidth;
+    padding: 10px 20px;
+    display: grid;
+    grid-template-columns: 500px 500px;
+    gap: 1rem;
+    .front-end {
+      width: 100%;
+      padding: 20px;
+
+      .stack-title {
+        font-size: 1.7rem;
+        font-weight: 600;
+      }
+
+      .progress-container {
+        padding: 20px 0;
+
+        .title {
+          display: flex;
+          justify-content: space-between;
+        }
+
+        .bar-container {
+          width: 100%;
+          height: 15px;
+          border-radius: 10px;
+          background-color: $background;
+          .bar {
+            height: 15px;
+            border-radius: 10px;
+            background-color: $primary;
+          }
+        }
+      }
+    }
+    .back-end {
+      @extend .front-end;
+    }
+  }
+}
+
+@media (max-width: $lg) {
+  .skills .container {
+    grid-template-columns: 380px 380px;
+  }
+}
+
+@media (max-width: $md) {
+  .skills .container {
+    grid-template-columns: 340px;
+
+    .stack-title {
+      text-align: center;
+    }
+  }
+}
