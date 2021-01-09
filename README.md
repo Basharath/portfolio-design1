@@ -1,3 +1,3 @@
 # Portfolio site design
 
-A sample portfolio design of John Doe.
+A simple portfolio design of John Doe.

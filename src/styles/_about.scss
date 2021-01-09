@@ -1,0 +1,57 @@
+.about {
+  background-color: $lightBackground;
+  padding: 30px 25px;
+  @include center;
+  flex-direction: column;
+  .heading {
+    font-size: 3rem;
+    font-weight: 500;
+    text-transform: capitalize;
+    text-shadow: $textShadow;
+    margin-bottom: 30px;
+    position: relative;
+
+    &::after {
+      @include borderBottom;
+      height: 3px;
+    }
+  }
+  .container {
+    max-width: $maxWidth;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-around;
+    .image-container {
+      width: 350px;
+      height: 350px;
+      background: url('../images/john.png') no-repeat center / contain;
+      // filter: drop-shadow(1px 1px 10px 2px rgba(0, 0, 0, 0.8));
+      filter: drop-shadow(3px 3px 15px #444);
+    }
+    .info {
+      width: 50%;
+      padding: 30px 20px;
+      margin: auto 0;
+      font-size: 1.1rem;
+      word-spacing: 5px;
+      line-height: 2;
+      text-align: justify;
+    }
+  }
+}
+
+@media (max-width: $md) {
+  .about .container {
+    flex-direction: column;
+
+    .image-container {
+      width: 300px;
+      height: 300px;
+    }
+
+    .info {
+      width: 100%;
+    }
+  }
+}

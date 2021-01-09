@@ -1,0 +1,96 @@
+.contact {
+  background-color: $lightBackground;
+  padding: 30px 25px 60px 25px;
+  @include center;
+  flex-direction: column;
+  .heading {
+    font-size: 3rem;
+    font-weight: 500;
+    text-transform: capitalize;
+    text-shadow: $textShadow;
+    margin-bottom: 15px;
+    position: relative;
+
+    &::after {
+      @include borderBottom;
+      height: 3px;
+    }
+  }
+
+  .container {
+    max-width: $maxWidth;
+    @include center;
+
+    form {
+      background-color: $background;
+      width: 600px;
+      padding: 25px;
+      margin-top: 10px;
+
+      border-radius: 10px;
+      box-shadow: $boxShadow;
+      font-family: $quickland;
+      font-weight: 500;
+      font-size: 1.1rem;
+
+      .error {
+        text-align: center;
+        color: $primary;
+      }
+
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 10px;
+        label {
+          margin: 5px 0;
+        }
+
+        input {
+          border: 1px solid #888;
+          outline: none;
+          padding: 8px;
+          border-radius: 5px;
+          font-family: $quickland;
+          font-weight: 500;
+          font-size: 1.05rem;
+        }
+
+        textarea {
+          @extend input;
+          min-width: 100%;
+          min-height: 100px;
+        }
+      }
+
+      .btn-submit {
+        margin: 10px 0;
+        width: 100%;
+      }
+    }
+
+    .success-message {
+      @extend form;
+      font-size: 1.3rem;
+      font-weight: 700;
+      text-align: center;
+      margin: 110px 0;
+    }
+  }
+}
+
+@media (max-width: $md) {
+  .contact .container {
+    form {
+      width: 350px;
+    }
+  }
+}
+
+@media (max-width: $xs) {
+  .contact .container {
+    form {
+      width: 300px;
+    }
+  }
+}

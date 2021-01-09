@@ -2,10 +2,10 @@ import React from 'react';
 
 import eventLogger from '../images/event-logger.png';
 import techBreeze from '../images/tech-breeze.png';
-import calender from '../images/calendar.png';
 import typingGame from '../images/typing-game.png';
+import analogClock from '../images/analog-clock.png';
 
-export default function LatestWorks() {
+export default function RecentWorks() {
   const ImageCard = ({ title, image, tech }) => (
     <div className="image-container">
       <img src={image} alt="latest-works" />
@@ -16,8 +16,8 @@ export default function LatestWorks() {
     </div>
   );
   return (
-    <section className="latest_works">
-      <div className="heading">Latest works</div>
+    <section className="recent_works">
+      <div className="heading">Recent Works</div>
       <div className="container">
         <ImageCard
           title="Tech Breeze"
@@ -36,7 +36,11 @@ export default function LatestWorks() {
           image={typingGame}
           tech="HTML, CSS, React"
         />
-        <ImageCard title="Calendar" image={calender} tech="HTML, CSS, React" />
+        <ImageCard
+          title="Analog Clock"
+          image={analogClock}
+          tech="HTML, CSS, React"
+        />
       </div>
     </section>
   );
