@@ -52,19 +52,13 @@ export default function Contact() {
       {!show && <div className="heading">Contact</div>}
       <div className="container">
         {!show ? (
-          <form
-            name="contact"
-            method="POST"
-            data-netlify="true"
-            onSubmit={handleSubmit}
-          >
+          <form name="contact" onSubmit={handleSubmit} data-netlify="true">
+            <input type="hidden" name="form-name" value="contact" />
             <div className="form-group">
               <label htmlFor="name">Name</label>
               <input
                 name="name"
                 type="text"
-                min="1"
-                max="100"
                 onChange={handleChange}
                 value={name}
               />
