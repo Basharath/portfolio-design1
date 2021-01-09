@@ -9,6 +9,14 @@ export default function Contact() {
     message: '',
   });
 
+  const encode = (data) => {
+    return Object.keys(data)
+      .map(
+        (key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key])
+      )
+      .join('&');
+  };
+
   const handleChange = ({ currentTarget }) => {
     const name = currentTarget.name;
     const value = currentTarget.value;
@@ -17,8 +25,10 @@ export default function Contact() {
       [name]: value,
     }));
   };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     if (!form.name || !form.email || !form.message) {
       setErr('Please fill the form completely');
       setTimeout(() => {
@@ -27,18 +37,15 @@ export default function Contact() {
       return;
     }
 
-    const response = await fetch('/', {
+    fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(form).toString(),
-    });
-
-    if (!response.ok) {
-      return alert('There is problem in sending message');
-    }
-
-    setShow(true);
+      body: encode({ 'form-name': 'contact', ...form }),
+    })
+      .then(() => setShow(true))
+      .catch((error) => alert('There is a problem in sending message'));
   };
+
   return (
     <section className="contact">
       {!show && <div className="heading">Contact</div>}
