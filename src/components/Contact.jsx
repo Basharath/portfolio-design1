@@ -26,7 +26,7 @@ export default function Contact() {
     }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     if (!form.name || !form.email || !form.message) {
@@ -46,12 +46,18 @@ export default function Contact() {
       .catch((error) => alert('There is a problem in sending message'));
   };
 
+  const { name, email, message } = form;
   return (
     <section className="contact">
       {!show && <div className="heading">Contact</div>}
       <div className="container">
         {!show ? (
-          <form name="contact" method="POST" data-netlify="true">
+          <form
+            name="contact"
+            method="POST"
+            data-netlify="true"
+            onSubmit={handleSubmit}
+          >
             <div className="form-group">
               <label htmlFor="name">Name</label>
               <input
@@ -60,22 +66,29 @@ export default function Contact() {
                 min="1"
                 max="100"
                 onChange={handleChange}
+                value={name}
               />
             </div>
             <div className="form-group">
               <label htmlFor="email">Email</label>
-              <input name="email" type="email" onChange={handleChange} />
+              <input
+                name="email"
+                type="email"
+                onChange={handleChange}
+                value={email}
+              />
             </div>
             <div className="form-group">
               <label htmlFor="message">Message</label>
-              <textarea name="message" type="text" onChange={handleChange} />
+              <textarea
+                name="message"
+                type="text"
+                onChange={handleChange}
+                value={message}
+              />
             </div>
             {err && <div className="error">{err}</div>}
-            <button
-              className="btn btn-submit"
-              type="submit"
-              onClick={handleSubmit}
-            >
+            <button className="btn btn-submit" type="submit">
               Send
             </button>
           </form>
