@@ -15,6 +15,7 @@ html {
 
 body {
   font-family: 'Poppins', sans-serif;
+  width: 100%;
 }
 
 .btn {
@@ -193,9 +194,6 @@ nav .container .nav-collapse .navbar .nav-item .nav-link::after {
 
 @media (max-width: 768px) {
   nav {
-    background-color: #f7f7f7;
-    -webkit-box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
-            box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
     width: 100%;
   }
   nav .container {
