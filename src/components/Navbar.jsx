@@ -13,11 +13,16 @@ export default function Navbar() {
   const scrollUp = () => {
     window.scrollTo({
       top: 0,
+      behavior: 'smooth',
     });
   };
 
   const handleNavHide = () => {
     setShow(false);
+    window.scrollTo({
+      top: 0,
+      behavior: 'auto',
+    });
   };
 
   useEffect(() => {
